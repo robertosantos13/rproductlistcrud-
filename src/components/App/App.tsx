@@ -1,12 +1,12 @@
 import React from "react";
 
-
+import {Main } from './App.styles'
 
 function App() {
     return (
-        <div>
+        <Main>
             todo: App
-        </div>
+        </Main>
     )
 }
 
