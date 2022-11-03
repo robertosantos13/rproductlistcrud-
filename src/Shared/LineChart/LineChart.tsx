@@ -1,9 +1,8 @@
-import React from "react";
 
 import { Container, ProgressBar } from './LineChart.styles';
 import extractPercentage from './../../utils/extractPercentage';
 import { ILine } from './interfaces/line';
-import { Product } from "../../components/ProdductsList/interface/product";
+import { Product } from "../../components/ProductsList/interface/product";
 
 
 

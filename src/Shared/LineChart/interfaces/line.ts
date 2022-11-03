@@ -1,4 +1,4 @@
-import { Product } from "../../../components/ProdductsList/interface/product";
+import { Product } from "../../../components/ProductsList/interface/product";
 
 export interface ILine {
     total: number,

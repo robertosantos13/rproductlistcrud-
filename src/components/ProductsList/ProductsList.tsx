@@ -1,4 +1,3 @@
-import React from "react";
 import Checkbox from "../../Shared/Checkbox";
 
 import { Container, Title, Array } from './ProductsList.styles';

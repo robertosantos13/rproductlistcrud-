@@ -1,41 +1,35 @@
-import { useEffect, useState } from "react";
-
 import { Main, Container } from './App.styles';
+
 import Header from './../Header';
 import AppContainer from "../AppContainer";
 import LineChart from "../../Shared/LineChart";
 
-import productsMock from '../../mocks/products.mock.json';
-import ProdductsList from "../ProdductsList";
-import { Product } from './../ProdductsList/interface/product';
+import ProductsList from "../ProductsList";
+
+import { useAppSelector } from "../../app/hooks/hooks";
+import { useAppDispatch } from './../../app/hooks/hooks';
+
+import {handleProductToggle } from './../../app/features/product/product.slice';
+
+import {
+    listAllProducts,
+    listSelectedProducts,
+    listCurrentSelectedProducts
+} from './../../app/features/product/products.selectors';
 
 
 function App() {
-    const [products, setProducts] = useState<Product[] | []>(productsMock.products);
-    const [selectedProducts, setSelectedProducts] = useState<Product[] | []>([]);
-    const [totalPriceProducts, setTotalPriceProucts] = useState(0);
+    const dispatch = useAppDispatch();
+
+    const products = useAppSelector(listAllProducts);
+    const selectedProducts = useAppSelector(listSelectedProducts);
+    const totalPriceProducts = useAppSelector(listCurrentSelectedProducts);
+    
 
     function handleToggle(id: string) {
-        const newSelectProducts = products.map((product: Product) =>
-            product.id === id ? { ...product, checked: !product.checked } : product) as Product[];
-
-        setProducts(newSelectProducts);
+        dispatch(handleProductToggle(id));
     }
 
-    useEffect(() => {
-        const newSelectProducts = products.filter((product: Product) => product.checked);
-
-        setSelectedProducts(newSelectProducts);
-    }, [products]);
-
-
-    useEffect(() => {
-        const newTotalSelectedProductByValue = selectedProducts.map((product: Product) => product.price)
-            .reduce((previousValue: number, currentValue: number) => previousValue + currentValue, 0);
-
-        setTotalPriceProucts(newTotalSelectedProductByValue);
-
-    }, [selectedProducts]);
 
     return (
         <Main>
@@ -44,14 +38,14 @@ function App() {
 
                 <AppContainer
                     left={
-                        <ProdductsList
+                        <ProductsList
                             title="Lista de produtos"
                             products={products}
                             onToggle={handleToggle}
                         />
                     }
                     middle={
-                        <ProdductsList
+                        <ProductsList
                             title="Produtos selecionados"
                             products={selectedProducts}
                             onToggle={handleToggle}
