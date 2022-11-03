@@ -1,13 +1,16 @@
 import React from "react";
 
-import {Main } from './App.styles'
+import { Main, Container } from './App.styles';
+import Header from './../Header';
 
 function App() {
     return (
         <Main>
-            todo: App
+            <Container>
+              <Header />
+            </Container>
         </Main>
-    )
+    );
 }
 
 

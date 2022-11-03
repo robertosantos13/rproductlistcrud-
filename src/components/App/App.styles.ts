@@ -14,3 +14,15 @@ export const Main = styled.main`
     background-size: cover;
     background-position: center center;
 `
+
+
+export const Container = styled.div`
+    background-color: #c5c5c5;
+    width: 925px;
+    height: 485px;
+
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+`
