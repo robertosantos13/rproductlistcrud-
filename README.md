@@ -43,7 +43,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-## refrence (https://www.youtube.com/watch?v=zym1bkoGom4&t=6253s)
+## reference (https://www.youtube.com/watch?v=zym1bkoGom4&t=6253s)
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
