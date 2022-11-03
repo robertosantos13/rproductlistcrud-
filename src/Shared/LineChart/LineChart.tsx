@@ -35,7 +35,7 @@ function LineChart({ total,  selectedProducts }: ILine) {
         <>
            {
                 lines.map((line: any) => (
-                    <Container>
+                    <Container key={line.title}>
                         <span>
                             {line.title}
                         </span>

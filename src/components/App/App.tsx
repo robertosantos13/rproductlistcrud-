@@ -8,8 +8,6 @@ import LineChart from "../../Shared/LineChart";
 import productsMock from '../../mocks/products.mock.json';
 import ProdductsList from "../ProdductsList";
 import { Product } from './../ProdductsList/interface/product';
-import extractPercentage from "../../utils/extractPercentage";
-
 
 
 function App() {
@@ -35,7 +33,7 @@ function App() {
         const newTotalSelectedProductByValue = selectedProducts.map((product: Product) => product.price)
             .reduce((previousValue: number, currentValue: number) => previousValue + currentValue, 0);
 
-        setTotalPriceProucts(newTotalSelectedProductByValue)
+        setTotalPriceProucts(newTotalSelectedProductByValue);
 
     }, [selectedProducts]);
 
@@ -67,7 +65,21 @@ function App() {
                                 selectedProducts={selectedProducts}
                             />
 
+                            <div style={{ marginTop: 12 }}>
+                                <h2 style={{ fontWeight: 400, fontSize: 12, color: '#00364A' }}>
+                                    previsão de gastos:
+                                </h2>
+                                <div style={{ fontSize: 24, textTransform: "capitalize" }}>
+                                    {totalPriceProducts.toLocaleString('pt-br', {
+                                        minimumFractionDigits: 2,
+                                        style: 'currency',
+                                        currency: 'BRL'
+                                    })}
+                                </div>
+                            </div>
                         </div>
+
+
                     }
 
                 />
